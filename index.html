@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lecture09</title>
+</head>
+<body>
+	<script>
+	/*
+		function summ() {
+		var summ = summArgs (arguments);
+		return function a(){
+			if(arguments.length > 0){
+				summ += summArgs (arguments);
+				return a;
+			}else {
+				return summ;
+			}
+		}
+	}
+	function summArgs(arg){
+		var temp = 0;
+		var slice = [].slice;
+		var arr = slice.call(arg);
+		for(var i=0; i<arr.length; i++){
+			temp += arr[i];
+		}
+		return temp;
+	}
+
+	
+	alert (summ(2)(2,3)());
+*/
+function obj() {
+		var summ = 0;
+		return {
+			add: function(){
+				var temp = Array.prototype.slice.call(arguments);
+				for (var i=0; i < temp.length; i++) {
+					summ += temp[i];
+					};
+				return this;
+			},
+				sub: function() {
+				var temp = Array.prototype.slice.call(arguments);
+				for (var i=0; i < temp.length; i++) {
+					summ -= temp[i];
+					};
+				 return this;
+			},
+				result: function() {
+				return summ;
+				},
+			}
+		};
+
+var obj = obj();
+
+obj.add(10,12,3,2,0).add(120,4).sub(1000).add(900); 
+alert(obj.result());
+
+
+	</script>
+	
+</body>
+</html>
